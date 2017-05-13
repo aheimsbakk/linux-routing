@@ -47,7 +47,7 @@ Vagrant.configure("2") do |config|
     c.vm.provision :shell, run: :always, inline: router_script
     c.vm.provision :shell, run: :always, inline: <<-SHELL
       echo *** Start UCARP
-      pgrep ucarp || ucarp -i enp0s9 -s 172.16.0.2 -a 172.16.0.1 -p router -v 1 -u /etc/vip-up.sh -d /etc/vip-down.sh -B
+      pgrep ucarp > /dev/null || ucarp -i enp0s9 -s 172.16.0.2 -a 172.16.0.1 -p router -v 1 -u /etc/vip-up.sh -d /etc/vip-down.sh -B
     SHELL
   end
 
@@ -60,7 +60,7 @@ Vagrant.configure("2") do |config|
     c.vm.provision :shell, run: :always, inline: router_script
     c.vm.provision :shell, run: :always, inline: <<-SHELL
       echo *** Start UCARP
-      pgrep ucarp || ucarp -i enp0s9 -s 172.16.0.3 -a 172.16.0.1 -p router -v 1 -u /etc/vip-up.sh -d /etc/vip-down.sh -B
+      pgrep ucarp > /dev/null || ucarp -i enp0s9 -s 172.16.0.3 -a 172.16.0.1 -p router -v 1 -u /etc/vip-up.sh -d /etc/vip-down.sh -B
     SHELL
   end
 
