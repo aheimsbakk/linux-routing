@@ -4,6 +4,20 @@ Example of a private network routed through redundant Linux boxes.
 
 `outside` mimics the network with static routes balanced over `router1` and `router2`. Inside will route through the VIP address. 
 
+## Running
+
+* `vagrant up` 
+
+    Creates all four VMs and pings `outside` from `inside` 10 times.
+
+* `vagrant provision`
+
+    Rerun setup scripts and the test.
+
+* `vagrant halt router1`
+
+    Stop `router1` and let VIP failover to `router2`.
+
 ## Configuration
 
 * `inside` default gateway is `172.16.0.1`
